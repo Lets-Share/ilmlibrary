@@ -63,7 +63,7 @@ export function Login() {
             <img 
               src={logo} 
               alt="IlmLibrary" 
-              className="h-16 w-auto object-contain" 
+              className="h-15 w-auto object-contain" 
             />
           </div>
         <h2 className="mt-6 text-center text-3xl font-extrabold text-zinc-900 dark:text-white">

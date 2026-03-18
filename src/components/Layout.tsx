@@ -22,7 +22,7 @@ export function Layout() {
             <img 
               src={logo} 
               alt="IlmLibrary" 
-              className="h-45 w-auto" 
+              className="h-15 w-auto" 
             />
           </Link>
 
@@ -78,7 +78,7 @@ export function Layout() {
                 <img 
                   src={logo} 
                   alt="IlmLibrary" 
-                  className="h-60 w-auto" 
+                  className="h-15 w-auto" 
                 />
               </div>
               <p className="text-zinc-500 dark:text-zinc-400 text-sm max-w-xs mt-4">
