@@ -1,20 +1,3 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "framework": "vite",
-  "redirects": [
-    {
-      "source": "/sitemap.xml",
-      "destination": "/sitemap.xml",
-      "permanent": true
-    },
-    {
-      "source": "/robots.txt",
-      "destination": "/robots.txt",
-      "permanent": true
-    }
-  ],
-  "rewrites": [
-    { "source": "/:path*", "destination": "/index.html" }
-  ]
+  "framework": "vite"
 }
