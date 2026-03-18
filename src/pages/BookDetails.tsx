@@ -5,6 +5,7 @@ import { db } from '../firebase';
 import { useAuthStore } from '../store/authStore';
 import { BookOpen, Bookmark, BookmarkCheck, ArrowLeft, Clock, ShieldAlert, Star, MessageSquare } from 'lucide-react';
 import { toast } from 'sonner';
+import { Helmet } from 'react-helmet-async';
 
 export function BookDetails() {
   const { id } = useParams<{ id: string }>();
@@ -133,6 +134,10 @@ export function BookDetails() {
 
   if (!book) return null;
 
+  const siteUrl = 'https://ilmlibrary1.vercel.app';
+  const bookUrl = `${siteUrl}/book/${book.id}`;
+  const coverUrl = book.coverURL || `https://picsum.photos/seed/${book.id}/400/600`;
+  
   const canRead = !book.isPremium || profile?.role === 'admin';
   
   const averageRating = reviews.length > 0 
@@ -141,6 +146,25 @@ export function BookDetails() {
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 py-12">
+      <Helmet>
+        <title>{book.title} by {book.author} - IlmLibrary</title>
+        <meta name="description" content={`${book.title} by ${book.author}. ${book.description?.substring(0, 150)}... Read online for free on IlmLibrary.`} />
+        <meta name="keywords" content={`${book.title}, ${book.author}, ${book.category}, free books, online reading, IlmLibrary`} />
+        <meta property="og:type" content="book" />
+        <meta property="og:title" content={`${book.title} - IlmLibrary`} />
+        <meta property="og:description" content={`${book.description?.substring(0, 150)}...`} />
+        <meta property="og:image" content={coverUrl} />
+        <meta property="og:url" content={bookUrl} />
+        <meta property="og:site_name" content="IlmLibrary" />
+        <meta property="book:author" content={book.author} />
+        <meta property="book:tag" content={book.category} />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content={`${book.title} - IlmLibrary`} />
+        <meta property="twitter:description" content={`${book.description?.substring(0, 150)}...`} />
+        <meta property="twitter:image" content={coverUrl} />
+        <meta property="twitter:url" content={bookUrl} />
+        <link rel="canonical" href={bookUrl} />
+      </Helmet>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link to="/library" className="inline-flex items-center gap-2 text-zinc-500 hover:text-zinc-900 dark:hover:text-white mb-8 transition-colors">
           <ArrowLeft className="w-4 h-4" /> Back to Library
