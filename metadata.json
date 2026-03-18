@@ -1,0 +1,5 @@
+{
+  "name": "IlmLibrary",
+  "description": "An online book library platform for students in Pakistan with PDF reading, bookmarking, and progress tracking.",
+  "requestFramePermissions": []
+}
