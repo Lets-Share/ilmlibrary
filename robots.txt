@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ilmlibrary.vercel.app/sitemap.xml
+Sitemap: https://ilmlibrary1.vercel.app/sitemap.xml
